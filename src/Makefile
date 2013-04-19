@@ -85,7 +85,7 @@ LIB_CLIENT_LDFLAGS += -Wl,-z,relro -pie
 all: $(LIBSO_ENTIRE_TARGET) $(LIBSO_CLIENT_TARGET) $(CMD_TARGET)
 
 $(LIBSO_ENTIRE_TARGET): $(LIB_ENTIRE_SOURCE)
-	$(CC) $(CFLAGS) $(LIB_ENTIRE_LDFLAGS) -shared -fPIC -o $@ -Wl,-soname=$(LIB_ENTIRE_TARGET).so.$(SOMAJOR) $^
+	$(CC) $(CFLAGS) $^ $(LIB_ENTIRE_LDFLAGS) -shared -fPIC -o $@ -Wl,-soname=$(LIB_ENTIRE_TARGET).so.$(SOMAJOR)
 	ln -sf $(LIBSO_ENTIRE_TARGET) $(LIB_ENTIRE_TARGET).so
 	ln -sf $(LIBSO_ENTIRE_TARGET) $(LIB_ENTIRE_TARGET).so.$(SOMAJOR)
 
@@ -105,7 +105,7 @@ INSTALL=$(shell which install)
 
 DESTDIR=
 BINDIR=/usr/sbin
-LIBDIR=/usr/lib64
+LIBDIR=/usr/lib
 HEADIR=/usr/include
 MANDIR=/usr/share/man
 

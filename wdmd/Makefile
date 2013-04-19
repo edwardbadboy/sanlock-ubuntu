@@ -71,7 +71,7 @@ INSTALL=$(shell which install)
 
 DESTDIR=
 BINDIR=/usr/sbin
-LIBDIR=/usr/lib64
+LIBDIR=/usr/lib
 HEADIR=/usr/include
 MANDIR=/usr/share/man
 
